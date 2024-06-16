@@ -30,3 +30,60 @@ Schedule Change Pending
 - [angr](https://angr.io)
 - [Angr CheatSheet](https://github.com/angr/angr-doc/blob/master/CHEATSHEET.md)
 
+
+
+# Challenge Solutions
+***apollo-1**
+
+```
+python3 chal.py
+````
+
+once it starts up, type ``c`` to continue and examine the state of the ``rdi`` and ``rsi`` registers
+
+
+**apollo-2**
+
+stat the challenge with the debugger
+```
+gdb ./chal.bin
+```
+
+break on the specific address
+```
+gdb >> break *0x4013e7
+gdb >> run
+```
+
+and then examine the state of the registers
+
+**apollo-3** ``ltrace ./chal.bin`` and look for the strcmp
+
+** Ransomware**: If you look [here](https://dogbolt.org/?id=5b9c0700-0e29-4f80-acfa-5d8528ff3766#), you should see that the dropper.bin downloads encrypt.bin from a webdav server. Making a logically leap that if the encrypt.bin tool is encrypting, the ``decrypt.bin`` must decrypt, you can issue the curl command to download the decryption tool with the correct username and password ``curl -u armstrong:the3agl3HasLand3d -O https://spacecadets-blog.chals.io/webdav/decrypt.bin``. Running the decryption tool, it has a strcmp for the password, which is ``0n3G1antL3ap``. As long as ``launch-codes.enc`` is in the current directory, download decrypt.bin, ``chmod +x decrypt.bin; ./decrypt.bin`` should produce a new file called ``launch-codes.txt`` that contains the flag. 
+
+Full solution
+
+```
+$ curl -u guest:password1234 -O https://spacecadets-helpdesk.chals.io/webdav/dropper.bin
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 18312  100 18312    0     0  56421      0 --:--:-- --:--:-- --:--:-- 57046
+
+$ curl -u guest:password1234 -O https://spacecadets-helpdesk.chals.io/webdav/launch-codes.enc
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    70  100    70    0     0    309      0 --:--:-- --:--:-- --:--:--   315
+
+$ curl -u armstrong:the3agl3HasLand3d -O https://spacecadets-blog.chals.io/webdav/decrypt.bin
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 14552  100 14552    0     0  37650      0 --:--:-- --:--:-- --:--:-- 38094
+
+$ chmod +x decrypt.bin
+{13:04}~/gencyber/ctf/evidence ➭ ./decrypt.bin 
+<<< Provide your password: 0n3G1antL3ap
+launch-codes.txt decrypted successfully.
+
+$ cat launch-codes.txt 
+..........................flag{321_blast_off}...................6u#          
+```
