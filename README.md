@@ -11,7 +11,7 @@
 |     |                        | [File Upload Based Attacks](/slides/day-2/3-Upload.pdf)               | [webvulns](https://spacecadets-webvulns.chals.io) [CTFd](https://spacecadets.ctfd.io)   |
 |     |                        | [Injection Based Attacks](/slides/day-2/4-Injection.pdf)              | [webvulns](https://spacecadets-webvulns.chals.io) [CTFd](https://spacecadets.ctfd.io)   |
 |     |                        | Think Like an Adversary Activity: Hack This Quiz Activity             |               |
-| 3   | [Crypto](/pages/CRYPTO.md)    | [Encoding Schemes](/slides/day-3/1-Encoding.pdf)                      | [cyberchef](https://gchq.github.io/CyberChef/) [CTFd](https://spacecadets.ctfd.io) |
+| 3   | [Crypto](/pages/CRYPTO.md)    | [Encoding Schemes](/slides/day-3/1-Encoding.pdf)  [Encoding (Jared)](/slidesday-3/1-Encoding-Jared.pdf) | [cyberchef](https://gchq.github.io/CyberChef/) [CTFd](https://spacecadets.ctfd.io) |
 |     |                        | [Cryptography Intro](/slides/day-3/2-Cryptography.pdf)                 | [cyberchef](https://gchq.github.io/CyberChef/) [CTFd](https://spacecadets.ctfd.io) |
 |     |                        | [Cryptographic Attacks](/slides/day-3/3-File.pdf)                     | [cyberchef](https://gchq.github.io/CyberChef/)                |
 |     |                        | Confidentiality Activity: Crypto Exercise With Cars                   | Cars           |
